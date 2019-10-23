@@ -7,7 +7,7 @@ const reducer = (state,action) => {
         case "DELETE_USER" :
             return {
                 ...state,
-                users: state.users.filter(user => user.payload !== user.id)
+                users: state.users.filter(user => user.id !== action.payload)
             }
     }
 }

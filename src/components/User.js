@@ -94,8 +94,8 @@ class User extends Component {
 User.protoTypes = {
     name: PropTypes.string.isRequired,
     department: PropTypes.string.isRequired,
-    salary: PropTypes.string.isRequired
-   
+    salary: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
 }
 
 User.defaultProps = {

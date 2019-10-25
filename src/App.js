@@ -5,7 +5,8 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Users from './components/Users'
 import AddUser from './components/AddUser';
-import {BrowserRouter as Router,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import NotFound from './components/NotFound';
 
 class App extends Component {
 
@@ -15,8 +16,12 @@ class App extends Component {
         <div className="container">
         <Navbar title="User App"></Navbar>
           <hr></hr>
-          <Route exact path="/" component = {Users} />
-          <Route exact path="/add" component = {AddUser} />
+          <Switch>
+            <Route exact path="/" component = {Users} />
+            <Route exact path="/add" component = {AddUser} />
+            <Route component = {NotFound} />
+          </Switch>
+          
         </div>
       </Router>
     )

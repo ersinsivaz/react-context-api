@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import Button from 'devextreme-react/button';
 import UserConsumer from '../context/Context';
+import axios from 'axios';
+
 
 
 const data = [{
@@ -18,27 +20,20 @@ const data = [{
 class User extends Component {
 
     state = {
-        isVisible: true
+        isVisible: false
     }
-    /* constructor(props){
-        super(props);
-
-        this.state = {
-            isVisible : false
-        }
-    } */
-
     
-
     onClickEvent = (e) => {
         this.setState({
             isVisible : !this.state.isVisible
         });
     }
 
-    onDeleteUser = (dispatch,e) => {
+    onDeleteUser = async (dispatch,e) => {
         const {id} = this.props;
-        console.log(id);
+        
+        await axios.delete(`http://localhost:3004/users/${id}`);
+
         dispatch({
             type:"DELETE_USER",
             payload: id
@@ -62,7 +57,7 @@ class User extends Component {
                                 <div className="card" style={isVisible ? {backgroundColor : "#AED6F1",color:"white"} : null}>
                                     <div className="card-header d-flex justify-content-between">
                                         <h4 className="d-inline" onClick={this.onClickEvent}>{name}</h4>
-                                        <i onClick = {this.onDeleteUser.bind(this,dispatch)} className="far fa-trash-alt" style={{cursor:"pointer"}}></i>
+                                        <i onClick = {this.onDeleteUser.bind(this,dispatch)} className="fa fa-trash-alt" style={{cursor:"pointer"}}></i>
                                     </div>
                                     {
                                         isVisible? 

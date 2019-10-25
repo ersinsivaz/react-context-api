@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "ersin",
+      "salary": "1000",
+      "department": "bilişim"
+    },
+    {
+      "name": "ahmet parlak",
+      "salary": "6000",
+      "department": "bilişim",
+      "id": "Llz1nUN"
+    },
+    {
+      "name": "zeynep birim",
+      "salary": "4000",
+      "department": "insan kaynakları",
+      "id": "ce3A9Oi"
+    }
+  ]
+}
